@@ -22,7 +22,7 @@ You can use the `Spatie\OrAbort\OrAbort`-trait on any class you want. All the me
 will gain `orAbort`-variant. When the original function returns a falsy value Laravel's `abort`-function
 will be called with code 404.
 
-Why in the world would you wanna use this trait?
+Why in the world would you want use this trait?
 
 If you use repositories you probably have written this kind of code:
 ```php
