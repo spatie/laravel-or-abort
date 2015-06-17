@@ -31,7 +31,7 @@ $article = $articleRepository->find($articleId) ?: abort(404)
 
 By using this trait on your repository you can write it a bit more readable:
 ```php
-$article = $articleRepository->findOrAbort()
+$article = $articleRepository->findOrAbort($articleId)
 ```
 
 You can even add an extra parameter to specify an abort code.
