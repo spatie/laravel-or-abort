@@ -2,7 +2,7 @@
 
 namespace Spatie\OrAbort\Test;
 
-include __DIR__ . '/abort.php';
+include __DIR__.'/abort.php';
 
 class OrAbortTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,9 +45,4 @@ class OrAbortTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('aborted-500', $this->testClass->singleParameterReturnsNullOrAbort('firstParameter', 500));
         $this->assertEquals('aborted-500', $this->testClass->multipleParametersReturnsNullOrAbort('first', 'second', 500));
     }
-
-
-
-
-
 }

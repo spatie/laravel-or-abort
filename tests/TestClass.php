@@ -4,8 +4,8 @@ namespace Spatie\OrAbort\Test;
 
 use Spatie\OrAbort\OrAbort;
 
-class TestClass {
-
+class TestClass
+{
     use OrAbort;
 
     /**
@@ -25,29 +25,31 @@ class TestClass {
      */
     public function returnNull()
     {
-        return null;
+        return;
     }
 
     /**
      * This function will return all given arguments.
      *
      * @param string $first
+     *
      * @return string
      */
     public function singleParameter($first)
     {
-       return $first;
+        return $first;
     }
 
     /**
      * This function will return null.
      *
      * @param string $first
+     *
      * @return string
      */
     public function singleParameterReturnsNull($first)
     {
-        return null;
+        return;
     }
 
     /**
@@ -55,11 +57,12 @@ class TestClass {
      *
      * @param string $first
      * @param $second
+     *
      * @return string
      */
     public function multipleParameters($first, $second)
     {
-        return $first . $second;
+        return $first.$second;
     }
 
     /**
@@ -67,10 +70,11 @@ class TestClass {
      *
      * @param string $first
      * @param $second
+     *
      * @return string
      */
     public function multipleParametersReturnsNull($first, $second)
     {
-        return null;
+        return;
     }
 }

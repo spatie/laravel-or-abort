@@ -15,16 +15,13 @@ trait OrAbort
 
             $originalMethodParameterCount = (new ReflectionMethod($this, $realMethodName))->getNumberOfParameters();
 
-            if (($originalMethodParameterCount +1) == count($args)) {
-
+            if (($originalMethodParameterCount + 1) == count($args)) {
                 $abortCode = array_pop($args);
-
             }
 
             $originalMethodResult = call_user_func_array([$this, $realMethodName], $args);
 
             if ($originalMethodResult == false) {
-
                 return abort($abortCode ?: 404);
             }
 
