@@ -1,4 +1,4 @@
-# laravel-or-abort
+# A trait to optionally abort a Laravel application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-or-abort.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-or-abort)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -26,17 +26,17 @@ Why in the world would you want use this trait?
 
 If you use repositories you probably have written this kind of code:
 ```php
-$article = $articleRepository->find($articleId) ?: abort(404)
+$article = $articleRepository->find($articleId) ?: abort(404);
 ```
 
 By using this trait on your repository you can write it a bit more readable:
 ```php
-$article = $articleRepository->findOrAbort($articleId)
+$article = $articleRepository->findOrAbort($articleId);
 ```
 
 You can even add an extra parameter to specify an abort code.
 ```php
-$article = $articleRepository->findOrAbort($articleId, 500) 
+$article = $articleRepository->findOrAbort($articleId, 500); 
 ```
 If the `find`-function on your repository returns a falsy value `abort(500)` will be called.
 
