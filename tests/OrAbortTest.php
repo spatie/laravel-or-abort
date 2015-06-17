@@ -32,7 +32,7 @@ class OrAbortTest extends \PHPUnit_Framework_TestCase
     public function it_will_abort_if_the_original_method_returns_null()
     {
         $this->assertEquals('aborted-404', $this->testClass->returnNullOrAbort());
-        $this->assertEquals('aborted-404', $this->testClass->singleParameterReturnsNullOrAbort('firstParameter'));
+        $this->assertEquals('aborted-404', $this->testClass->singleParameterReturnsNullOrAbort('first'));
         $this->assertEquals('aborted-404', $this->testClass->multipleParametersReturnsNullOrAbort('first', 'second'));
     }
 
@@ -42,7 +42,7 @@ class OrAbortTest extends \PHPUnit_Framework_TestCase
     public function it_will_abort_with_the_given_code_if_the_original_method_returns_null()
     {
         $this->assertEquals('aborted-500', $this->testClass->returnNullOrAbort(500));
-        $this->assertEquals('aborted-500', $this->testClass->singleParameterReturnsNullOrAbort('firstParameter', 500));
+        $this->assertEquals('aborted-500', $this->testClass->singleParameterReturnsNullOrAbort('first', 500));
         $this->assertEquals('aborted-500', $this->testClass->multipleParametersReturnsNullOrAbort('first', 'second', 500));
     }
 }
