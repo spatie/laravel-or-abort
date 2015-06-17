@@ -3,11 +3,11 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-or-abort.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-or-abort)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-or-abort/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-or-abort)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/4e770b13-3d06-4494-8cb1-accbd350de0c.svg?style=flat-square)](https://insight.sensiolabs.com/projects/4e770b13-3d06-4494-8cb1-accbd350de0c)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/f91a946a-83e5-405f-8546-4cfd6a29b93e.svg?style=flat-square)](https://insight.sensiolabs.com/projects/f91a946a-83e5-405f-8546-4cfd6a29b93e)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-or-abort.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-or-abort)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-or-abort.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-or-abort)
 
-This package adds an `OrAbort`-trait to your laravel project.
+This package adds an `OrAbort`-trait to your Laravel project.
 
 ## Install
 
@@ -18,41 +18,28 @@ $ composer require spatie/laravel-or-abort
 
 ## Usage
 
-When implementing the `OrAbort`-trait to a class, all methods of the class will have a `OrAbort`-variant.
-That variant has an extra parameter that will be returned if the original function returns `null` or `false`.
+You can use the `Spatie\OrAbort\OrAbort`-trait on any class you want. All the methods of the class
+will gain `orAbort`-variant. When the original function returns a falsy value Laravel's `abort`-function
+will be called with code 404.
 
-Consider this simple class that implements the `OrAbort`-trait.
+Why in the world would you wanna use this trait?
 
+If you use repositories you probably have written this kind of code:
 ```php
-use Spatie\OrAbort\OrAbort;
-
-class TestClass {
-
-    use OrAbort;
-
-    /**
-     * This function will return the given argument.
-     *
-     * @return string
-     */
-    public function willReturn($value)
-    {
-       return $value;
-    }
-  
-}
+$article = $articleRepository->find($articleId) ?: abort(404)
 ```
 
-The trait dynamically adds a `willReturnOrAbort`-method. 
-
+By using this trait on your repository you can write it a bit more readable:
 ```php
-$testClass = new TestClass;
-$testClass->willReturn('value'); // returns 'value';
-$testClass->willReturnOrAbort('value', 'otherValue'); // returns 'otherValue';
-$testClass->willReturnOrAbort(null, 'otherValue'); // returns 'otherValue';
-$testClass->willReturnOrAbort(false, 'otherValue'); // returns 'otherValue';
-$testClass->willReturnOrAbort(false', function() { return 'closureValue'; }); // returns 'closureValue';
+$article = $articleRepository->findOrAbort()
 ```
+
+You can even add an extra parameter to specify an abort code.
+```php
+$article = $articleRepository->findOrAbort($articleId, 500) 
+```
+If the `find`-function on your repository returns a falsy value `abort(500)` will be called.
+
 
 ## Change log
 
@@ -75,8 +62,9 @@ If you discover any security related issues, please email freek@spatie.be instea
 ## Credits
 
 - [Freek Van der Herten](https://murze.be)
-- [Edd Mann](https://twitter.com/edd_mann)
 - [All Contributors](../../contributors)
+
+This package was inspired by [this article](http://tech.mybuilder.com/optional-value-control-flows-in-php-using-traits-and-magic-methods/) by [Edd Mann](https://twitter.com/edd_mann)
 
 ## License
 
