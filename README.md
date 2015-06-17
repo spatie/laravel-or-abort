@@ -40,6 +40,9 @@ $article = $articleRepository->findOrAbort($articleId, 500)
 ```
 If the `find`-function on your repository returns a falsy value `abort(500)` will be called.
 
+## A word to the wise
+The `orAbort`-trait uses the magic method `__call`. If your class already implements that call, you shouldn't
+use our trait.
 
 ## Change log
 
