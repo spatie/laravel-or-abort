@@ -1,11 +1,12 @@
 {
-    "name": "spatie/or-abort",
+    "name": "spatie/laravel-or-abort",
     "description": "A trait to add OrAbort functions to a class",
     "keywords": [
-        "league",
-        "or-else"
+        "spatie",
+        "laravel",
+        "abort"
     ],
-    "homepage": "https://github.com/spatie/or-abort",
+    "homepage": "https://github.com/spatie/laravel-or-abort",
     "license": "MIT",
     "authors": [
         {
