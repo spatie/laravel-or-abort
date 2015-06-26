@@ -27,5 +27,8 @@ trait OrAbort
 
             return $originalMethodResult;
         }
+
+
+        trigger_error('Call to undefined method '.__CLASS__.'::'.$method.'()', E_USER_ERROR);
     }
 }
