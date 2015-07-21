@@ -9,6 +9,8 @@
 
 This package adds an `OrAbort`-trait to your Laravel project.
 
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
 ## Install
 
 You can install the package via composer:
@@ -66,6 +68,9 @@ If you discover any security related issues, please email freek@spatie.be instea
 
 - [Freek Van der Herten](https://murze.be)
 - [All Contributors](../../contributors)
+
+## About Spatie
+Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 This package was inspired by [this article](http://tech.mybuilder.com/optional-value-control-flows-in-php-using-traits-and-magic-methods/) by [Edd Mann](https://twitter.com/edd_mann)
 
