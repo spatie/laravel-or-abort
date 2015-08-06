@@ -7,7 +7,11 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-or-abort.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-or-abort)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-or-abort.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-or-abort)
 
-This package adds an `OrAbort`-trait to your Laravel project.
+This package adds an `OrAbort`-trait to your Laravel project. You can use it for example to choose your abort code when a `find`-call returns false.
+
+```php
+ $eloquentModel->findOrAbort($modelId, 500); 
+```
 
 Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
