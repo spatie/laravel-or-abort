@@ -1,3 +1,5 @@
+**THIS PACKAGE ISN'T MAINTAINED ANYMORE**
+
 # A trait to optionally abort a Laravel application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-or-abort.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-or-abort)
